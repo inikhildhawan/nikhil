@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Message and Clock</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+    h1 {
+      color: #007BFF;
+    }
+    #clock {
+      font-size: 40px;
+      margin-top: 20px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to Our Website!</h1>
+  <div id="clock">Loading...</div>
+
+  <script>
+    // Function to update the clock display
+    function updateClock() {
+      const now = new Date();
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+
+      const timeString = `${hours}:${minutes}:${seconds}`;
+      document.getElementById('clock').textContent = timeString;
+    }
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Function to display the welcome message
+    function displayWelcomeMessage() {
+      const userName = prompt('Please enter your name:');
+      if (userName) {
+        const welcomeMessage = `Welcome, ${userName}!`;
+        const welcomeElement = document.createElement('p');
+        welcomeElement.textContent = welcomeMessage;
+        document.body.appendChild(welcomeElement);
+      }
+    }
+
+    // Call the function to display the welcome message
+    displayWelcomeMessage();
+  </script>
+</body>
+</html>

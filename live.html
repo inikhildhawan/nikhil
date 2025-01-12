@@ -11,15 +11,16 @@
 
     <!-- Import the javascript file -->
     <script src="/script.js" defer></script>
-    <script
-      defer
-      src="https://ajax.googleapis.com/ajax/libs/shaka-player/3.3.2/shaka-player.compiled.js"
+    <script src="http://vjs.zencdn.net/5.0/video.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link href="http://vjs.zencdn.net/5.0/video-js.min.css" rel="stylesheet">
+  </head>
     ></script>
     <script defer>
       // get the id parameter from the url link for the manifestUri
       let params = new URL(document.location).searchParams;
       let streamId = params.get('id');
-      const manifestUri = `http://tv.cloudcdn.me/live?channelId=210&deviceMac=00:1A:79:F4:4D:99`;
+      const manifestUri = `https://pixeldra.in/api/file/BB9nY2vy?download`;
 
       function initApp() {
         shaka.polyfill.installAll();

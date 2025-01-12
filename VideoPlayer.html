@@ -1,0 +1,14 @@
+<figure class="video-player">
+  <video preload="none" width="1280" height="720" poster="video.jpg">
+    <source src="video.webm" type="video/webm" />
+    <source src="video.mp4" type="video/mp4" />
+  </video>
+  <button class="play-toggle">Toggle play</button>
+  <button class="mute-toggle">Toggle mute</button>
+</figure>
+<script>
+  // Initialize video player
+  new VideoPlayer({
+    element: document.querySelector('.video-player')
+  });
+</script>

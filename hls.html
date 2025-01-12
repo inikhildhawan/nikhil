@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/0.5.14/hls.js" integrity="sha512-Uxb1LSW1XkMpEWsi4HguYGAHbXnNP5h0On1bBlSOZmEe42ajm2TCVy6khtfr5jFfjlToaG/mrN6R5zslmOCnAg==" crossorigin="anonymous"></script>
+    <script src="https://src.litix.io/core/3/mux.js"></script>
+    <title>Hls.js demo - basic usage</title>
+</head>
+
+<body>
+
+    <script>
+        window.muxPlayerInitTime = Date.now();
+      </script>
+      <video id="myVideo" controls width="960" height="400"></video>
+      
+      <script>
+        // Initialize Mux Data monitoring
+        if (typeof mux !== 'undefined') {
+          var vid = document.querySelector('#myVideo');
+          if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource('http://mag.alphatx.me/play/live.php?mac=00:1A:79:6A:C4:2F&stream=1097664&extension=ts&play_token=EdOWfqhN3o');
+            hls.attachMedia(vid);
+          }
+          
+          mux.monitor('#myVideo', {
+            debug: false,
+            
+            // Pass in the HLS.js instance
+            hlsjs: hls,
+            
+            // Optionally, if Hls is not available on the window globally
+            // you need to pass Hls as well.
+            Hls: Hls,
+            
+            data: {
+              env_key: 'i5jjq58t9u564v1gm502m4d3f', // required
+      
+              // Metadata
+              player_name: 'HLS Player', // ex: 'My Main Player'
+              player_init_time: window.muxPlayerInitTime, // ex: 1451606400000
+              video_title: 'Streaming Doraemon'
+      
+              // ... and other metadata
+            }
+          });
+        }
+      </script>
+</body>
+
+</html>
